@@ -1,97 +1,33 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+const dataBase = require("../../dataBase/dataBase.js");
 Page({
     data: {
         dataArray: [
             {
-                name: "一号板子",
-                id: "21306259",
-                online: true
-            },
-            {
-                name: "二号板子",
-                id: "26316099",
+                name: "样例1",
+                id: "123",
                 online: false
-            }
+            },
         ]
     },
     
     onLoad: function () {
-      /*
-      wx.request({
-        url: 'https://api.heclouds.com/cmds?device_id=528728887',
-        data:{
-          'msg':"haha2",
-        },
-        header: {
-          //设置参数内容类型为json
-          'content-type': 'application/json',
-          'api-key': 'Bkh=8qotxcXKZ7=alafimSQFB2Q=',
-        },
-        method: 'POST',
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
-      /*
-      wx.request({
-        url: 'https://api.heclouds.com/devices/528728887',
-        header: {
-          //设置参数内容类型为json
-          'content-type': 'application/json',
-          'api-key':'Bkh=8qotxcXKZ7=alafimSQFB2Q=',
-        },
-        method: 'GET',
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
-      /*
-      wx.request({
-        url: 'http://api.heclouds.com/register_de?register_code=z7Azx6NZntNNao84',
-        method:'POST',
-        data:{
-          "sn": "testuseonly2",
-          "title": "test_2"
-        },
-        header: {
-          //设置参数内容类型为json
-          'content-type': 'application/json'
-        },
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
-      /*
-      if (app.globalData.userInfo) {
-        this.setData({
-          userInfo: app.globalData.userInfo,
-          hasUserInfo: true
-        })
-      } else if (this.data.canIUse){
-        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-        // 所以此处加入 callback 以防止这种情况
-        app.userInfoReadyCallback = res => {
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+      var devices = dataBase.getDeviceList();
+      var that = this;
+      devices.forEach(function(item,index){//这时候应该更新一下看设备在不在线
+        dataBase.queryState(item).then(function(res){//里面包了一个promise
+          console.log(res);
+          devices[index].online = res.data.online;//更新一下在线情况
+          that.setData({
+            dataArray:devices
           })
-        }
-      } else {
-        // 在没有 open-type=getUserInfo 版本的兼容处理
-        wx.getUserInfo({
-          success: res => {
-            app.globalData.userInfo = res.userInfo
-            this.setData({
-              userInfo: res.userInfo,
-              hasUserInfo: true
-            })
-          }
         })
-      }
-      */
+      })
+      this.setData({
+        dataArray:devices,
+      })
     },
 
     onPullDownRefresh: function() {
