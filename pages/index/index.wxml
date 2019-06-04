@@ -1,13 +1,18 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<view class='item-container' wx:for='{{dataArray}}' wx:key='{{index}}'>
+    <view class='device-container'>
+        <view class='text-container'>
+            <text class='name'>{{item.name}}</text>
+            <text class='id'>{{item.id}}</text>
+        </view>
+        <view class='green-light' wx:if='{{item.online}}'></view>
+        <view class='red-light' wx:else></view>
+    </view>
+    <view class='btn-container'>
+        <button class='btn btn-info' bindtap='showInfo' data-index='{{index}}'>详情</button>
+        <button class='btn' bindtap='edit' data-index='{{index}}'>编辑</button>
+    </view>
+</view>
+
+<view class='add-device' bindtap='addDevice'>
+    <image class='icon' src='/images/add.png'></image>
 </view>
