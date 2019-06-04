@@ -16,6 +16,52 @@ Page({
     })
   },
   onLoad: function () {
+    /*
+    wx.request({
+      url: 'https://api.heclouds.com/cmds?device_id=528728887',
+      data:{
+        'msg':"haha2",
+      },
+      header: {
+        //设置参数内容类型为json
+        'content-type': 'application/json',
+        'api-key': 'Bkh=8qotxcXKZ7=alafimSQFB2Q=',
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+    /*
+    wx.request({
+      url: 'https://api.heclouds.com/devices/528728887',
+      header: {
+        //设置参数内容类型为json
+        'content-type': 'application/json',
+        'api-key':'Bkh=8qotxcXKZ7=alafimSQFB2Q=',
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+    /*
+    wx.request({
+      url: 'http://api.heclouds.com/register_de?register_code=z7Azx6NZntNNao84',
+      method:'POST',
+      data:{
+        "sn": "testuseonly2",
+        "title": "test_2"
+      },
+      header: {
+        //设置参数内容类型为json
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+    /*
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,6 +88,7 @@ Page({
         }
       })
     }
+    */
   },
   getUserInfo: function(e) {
     console.log(e)
