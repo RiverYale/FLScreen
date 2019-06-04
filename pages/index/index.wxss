@@ -1,21 +1,90 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+page{
+    background: rgb(235, 235, 235);
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.item-container{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px;
+    padding: 15px 20px;
+    padding-bottom: 5px;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.device-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.usermotto {
-  margin-top: 200px;
+.text-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.name{
+    margin-bottom: 3px;
+    font-size: 20px;
+}
+
+.id{
+    font-size: 15px;
+    color: gray;
+}
+
+.green-light{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: rgb(10, 221, 10);
+    border: 1px solid gray;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.red-light{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: rgb(223, 72, 72);
+    border: 1px solid gray;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn{
+    flex: 1;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    background: lightblue;
+}
+.btn::after{
+    border: none;
+}
+
+.btn-info{
+    margin-right: 20px;
+}
+
+.add-device{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    height: 45px;
+    align-items: center;
+}
+
+.icon{
+    width: 35px;
+    height: 35px;
 }
