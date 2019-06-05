@@ -14,7 +14,11 @@ Page({
     },
 
     onLoad: function () {
-        this.refreshData();
+        
+    },
+
+    onShow: function(){
+      this.refreshData();
     },
 
     onPullDownRefresh: function () {
@@ -23,14 +27,27 @@ Page({
 
     refreshData: function() {
         var devices = dataBase.getDeviceList();
+        var num = 0;
         var that = this;
+        wx.showToast({
+          title: '刷新中',
+          icon: "loading",
+        })
         devices.forEach(function (item, index) {//这时候应该更新一下看设备在不在线
             dataBase.queryState(item).then(function (res) {//里面包了一个promise
-                console.log(res);
-                devices[index].online = res.data.online;//更新一下在线情况
+                //console.log(res);
+                devices[index].online = res.data.data.online;//更新一下在线情况
                 that.setData({
                     dataArray: devices
                 })
+                num++;
+                if(num==devices.length){
+                  wx.hideToast();
+                  wx.showToast({
+                    title: '刷新成功',
+                    duration:600,
+                  })
+                }
             })
         })
         this.setData({

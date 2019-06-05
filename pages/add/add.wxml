@@ -6,12 +6,12 @@
 
 <view class='wrapper'>
     <text class='title'>设备ID</text>
-    <input value='{{id}}' maxlength='20' placeholder='请查看设备' bindinput='editID'/>
+    <input value='{{id}}' type="number" placeholder='请查看设备' bindinput='editID'/>
 </view>
 
 <view class='wrapper'>
     <text class='title'>设备Key</text>
-    <input value='{{key}}' maxlength='20' placeholder='请查看设备' bindinput='editKey'/>
+    <input value='{{key}}'  placeholder='请查看设备' bindinput='editKey'/>
 </view>
 
 <button disabled='{{disabled}}' bindtap='add'>添 加</button>
