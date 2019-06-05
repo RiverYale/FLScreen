@@ -1,2 +1,17 @@
 <!--pages/add/add.wxml-->
-<text>pages/add/add.wxml</text>
+<view class='wrapper'>
+    <text class='title'>设备名称</text>
+    <input value='{{name}}' maxlength='15' placeholder='为你的设备命名' bindinput='editName'/>
+</view>
+
+<view class='wrapper'>
+    <text class='title'>设备ID</text>
+    <input value='{{id}}' maxlength='20' placeholder='请查看设备' bindinput='editID'/>
+</view>
+
+<view class='wrapper'>
+    <text class='title'>设备Key</text>
+    <input value='{{key}}' maxlength='20' placeholder='请查看设备' bindinput='editKey'/>
+</view>
+
+<button disabled='{{disabled}}' bindtap='add'>添 加</button>

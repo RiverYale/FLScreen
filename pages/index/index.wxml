@@ -1,3 +1,4 @@
+<!--pages/index/index.wxml-->
 <view class='item-container' wx:for='{{dataArray}}' wx:key='{{index}}'>
     <view class='device-container'>
         <view class='text-container'>

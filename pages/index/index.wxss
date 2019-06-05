@@ -1,6 +1,6 @@
 /**index.wxss**/
 page{
-    background: rgb(235, 235, 235);
+    background-color: #F8F8F8;
 }
 
 .item-container{

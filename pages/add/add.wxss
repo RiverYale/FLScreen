@@ -1,1 +1,39 @@
 /* pages/add/add.wxss */
+page {
+    background-color: #F8F8F8;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    margin-top: 5px;
+    font-size: 20px;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+}
+
+.title{
+    width: 100px;
+    margin: 15px;
+    word-break: keep-all;
+    white-space: nowrap;     
+    align-content: center;
+}
+
+input{
+    width:60%;
+}
+
+button{
+    background: rgb(142, 205, 226);
+    margin-top: 10px;
+}
+button::after{
+    border: none;
+}
+button[disabled] {
+    color: rgb(167, 164, 164) !important;
+    background: rgb(187, 218, 228) !important;
+}
