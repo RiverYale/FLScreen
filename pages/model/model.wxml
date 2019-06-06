@@ -1,0 +1,12 @@
+<!--pages/model/model.wxml-->
+<view class='wrapper'>
+    <view class='model-name'>
+        <text>{{modelName[modelNum]}} ({{modelNum+1}}/{{maxModelNum}})</text>
+    </view>
+    <view class='img-container'>
+        <image class='arrow' src='/images/left.png' bindtap='last' />
+        <image class='model' src='/images/model{{modelNum}}.png'/>
+        <image class='arrow' src='/images/right.png' bindtap='next' />
+    </view>
+    <button bindtap='ensure'>确认</button>
+</view>

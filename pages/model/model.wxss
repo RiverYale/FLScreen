@@ -1,0 +1,50 @@
+/* pages/model/model.wxss */
+page {
+    background-color: #F8F8F8;
+}
+
+.wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.model-name{
+    text-align: center;
+    background: white;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    margin: 5px 0;
+}
+
+.img-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60%;
+}
+
+.arrow{
+    width: 80rpx;
+    height: 200rpx;
+    margin: 0 30rpx;
+}
+
+.model{
+    width: 400rpx;
+    height: 100%;
+    box-shadow: 4px 4px 8px gray;
+}
+
+button{
+    width: 100%;
+    background: lightskyblue;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+}
