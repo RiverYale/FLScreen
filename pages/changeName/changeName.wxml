@@ -1,0 +1,6 @@
+<!--pages/changeName/changeName.wxml-->
+<view class='wrapper'>
+    <input value='{{name}}' maxlength='15' bindinput='editName' placeholder='修改设备名称'/>
+</view>
+
+<button disabled='{{name==""}}' bindtap='ensure'>确认</button>

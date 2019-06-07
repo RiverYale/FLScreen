@@ -1,8 +1,4 @@
 /* pages/model/model.wxss */
-page {
-    background-color: #F8F8F8;
-}
-
 .wrapper{
     position: fixed;
     width: 100%;
@@ -47,4 +43,5 @@ button{
     height: 40px;
     line-height: 40px;
     font-size: 20px;
+    border-radius: 0;
 }

@@ -57,11 +57,13 @@ Page({
     },
 
     showInfo: function (e) {
-        wx.navigateTo({ url: '/pages/info/info?index=' + e.currentTarget.dataset.index })
+        app.globalData.deviceNum = e.currentTarget.dataset.index
+        wx.navigateTo({ url: '/pages/info/info' })
     },
 
     edit: function (e) {
-        wx.navigateTo({ url: '/pages/edit/edit?index=' + e.currentTarget.dataset.index })
+        app.globalData.deviceNum = e.currentTarget.dataset.index
+        wx.navigateTo({ url: '/pages/edit/edit' })
     },
 
     addDevice: function () {

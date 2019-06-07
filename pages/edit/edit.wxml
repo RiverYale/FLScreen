@@ -1,17 +1,13 @@
 <!--pages/edid/edit.wxml-->
 <view class='wrapper' style='justify-content:space-between;' bindtap='changeModel'>
     <text class='title'>更改模板</text>
-    <text class='model' space='emsp'>模板1 > </text>
+    <text class='model' space='emsp'>{{modelName[modelNum]}} > </text>
 </view>
 
-<view class='wrapper'>
-    <text class='title'>姓名</text>
-    <input value='{{name}}' bindinput='editName'/>
+<view class='wrapper' wx:for='{{modelInfo[modelNum]}}' wx:key='{{index}}'>
+    <text class='title'>{{item.title}}</text>
+    <input value='{{item.content}}' bindinput='{{item.func}}' data-i='{{index}}'/>
 </view>
 
-<view class='wrapper'>
-    <text class='title'>职位</text>
-    <input value='{{position}}' bindinput='editPosition'/>
-</view>
-
-<button bindtap='ensure'>确认</button>
+<button class='remove' bindtap='remove'>删除设备</button>
+<button class='ensure' bindtap='ensure'>确认编辑</button>

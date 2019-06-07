@@ -1,2 +1,10 @@
 <!--pages/info/info.wxml-->
-<text>设备{{index}}的详情</text>
+<view class='wrapper' bindtap='changeModel'>
+    <text class='title'>{{dataArray[0].title}}</text>
+    <text class='content' space='emsp'>{{dataArray[0].content}} > </text>
+</view>
+
+<view class='item' wx:for='{{dataArray}}' wx:key='{{index}}' wx:if='{{index>0}}'>
+    <text class='title'>{{item.title}}</text>
+    <text class='content' space='emsp'>{{item.content}} </text>
+</view>

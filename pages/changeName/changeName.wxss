@@ -1,9 +1,9 @@
-/* pages/edid/edit.wxss */
+/* pages/changeName/changeName.wxss */
 .wrapper{
     display: flex;
     flex-direction: row;
     background-color: white;
-    margin-top: 5px;
+    margin: 15px 0;
     font-size: 20px;
     height: 60px;
     width: 100%;
@@ -18,26 +18,18 @@
     align-content: center;
 }
 
-.model{
-    color: gray;
-}
-
 input{
-    width:60%;
+    margin: 0 15px;
 }
 
 button{
     border-radius: 0;
+    background: rgb(206, 236, 255);
 }
 button::after{
     border: none;
 }
-
-.remove{
-    background: rgb(255, 143, 143);
-    margin-top: 10px;
-}
-
-.ensure{
-    background: lightskyblue;
+button[disabled] {
+    color: rgb(167, 164, 164) !important;
+    background: rgb(218, 241, 255) !important;
 }

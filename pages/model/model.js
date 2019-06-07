@@ -2,7 +2,7 @@
 const app = getApp()
 Page({
     data: {
-        index: -1,
+        deviceNum: -1,
         modelNum: 0,
         maxModelNum: 0,
         modelName: []
@@ -10,8 +10,8 @@ Page({
 
     onLoad: function (options) {
         this.setData({ 
-            index: options.index,
-            modelNum: 0,//应该为原本选择的模板编号
+            deviceNum: app.globalData.deviceNum,
+            modelNum: 0, //对应模型编号
             maxModelNum: app.globalData.maxModelNum,
             modelName: app.globalData.modelName
         })

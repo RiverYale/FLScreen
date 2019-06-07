@@ -1,10 +1,11 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/add/add",
         "pages/info/info",
+        "pages/add/add",
         "pages/edit/edit",
-        "pages/model/model"
+        "pages/model/model",
+        "pages/changeName/changeName"
         
     ],
     "window": {
