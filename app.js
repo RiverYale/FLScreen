@@ -10,16 +10,24 @@ App({
         ],
         modelInfo: [
             [
-                { title: '姓名', content: '', func: 'editName' },
-                { title: '职位', content: '', func: 'editPosition' }
+                { title: '会议主题', content: '' },
+                { title: '姓名', content: '' },
+                { title: '姓名拼音', content: '' },
+                { title: '职称', content: '' }
             ],
             [
-                { title: '姓名', content: '', func: 'editName' },
-                { title: '部门', content: '', func: 'editDepartment' }
+                { title: '姓名', content: '' },
+                { title: '姓名拼音', content: '' },
+                { title: '部门名称', content: '' },
+                { title: '职位名称', content: '' },
+                { title: '留言区', content: '' }
             ],
             [
-                { title: '姓名', content: '', func: 'editName' },
-                { title: '会议', content: '', func: 'editConference' }
+                { title: '姓名', content: '' },
+                { title: '姓名拼音', content: '' },
+                { title: '部门名称', content: '' },
+                { title: '职位名称', content: '' },
+                { title: '留言区', content: '' }
             ]
         ]
     },

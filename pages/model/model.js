@@ -5,7 +5,12 @@ Page({
         deviceNum: -1,
         modelNum: 0,
         maxModelNum: 0,
-        modelName: []
+        modelName: [], 
+        images: [
+            '/images/model0.jpg',
+            '/images/model1.jpg',
+            '/images/model2.jpg'
+        ]
     },
 
     onLoad: function (options) {
@@ -17,15 +22,8 @@ Page({
         })
     },
 
-    last: function () {
-        this.data.modelNum += this.data.maxModelNum - 1
-            ;
-        this.setData({ modelNum: this.data.modelNum %= this.data.maxModelNum })
-    },
-
-    next: function () {
-        this.data.modelNum++
-        this.setData({ modelNum: this.data.modelNum %= this.data.maxModelNum })
+    changeModel: function (e) {
+        this.setData({ modelNum: e.detail.current })
     },
 
     ensure: function () {

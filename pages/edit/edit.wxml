@@ -6,7 +6,7 @@
 
 <view class='wrapper' wx:for='{{modelInfo[modelNum]}}' wx:key='{{index}}'>
     <text class='title'>{{item.title}}</text>
-    <input value='{{item.content}}' bindinput='{{item.func}}' data-i='{{index}}'/>
+    <input value='{{item.content}}' bindinput='editInfo' data-index='{{index}}'/>
 </view>
 
 <button class='remove' bindtap='remove'>删除设备</button>

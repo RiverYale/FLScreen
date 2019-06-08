@@ -3,9 +3,7 @@ const app = getApp()
 Page({
     data: {
         deviceNum: -1,
-        name: '',
-        position: '',
-        modelNum: 1, //模板编号
+        modelNum: 0, //模板编号
         modelName: [],
         modelInfo: []
     },
@@ -23,33 +21,26 @@ Page({
     },
 
     remove: function() {
-
+        wx.showModal({
+            title: '提示',
+            content: '确定删除？',
+            success(res) {
+                if (res.confirm) {
+                    //删除
+                    wx.navigateBack()
+                }
+            }
+        })
     },
     
     ensure: function() {
         wx.navigateBack()
     },
 
-
-
-    editName: function (e) {
+    editInfo: function(e) {
         let modelNum = this.data.modelNum
-        this.data.modelInfo[modelNum].content = e.detail.value
+        let index = e.currentTarget.dataset.index
+        this.data.modelInfo[modelNum][index].content = e.detail.value
         console.log(this.data.modelInfo[modelNum])
-    },
-
-    editPosition: function (e) {
-        let modelNum = this.data.modelNum
-        this.data.modelInfo[modelNum].content = e.detail.value
-    },
-
-    editDepartment: function (e) {
-        let modelNum = this.data.modelNum
-        this.data.modelInfo[modelNum].content = e.detail.value
-    },
-
-    editConference: function (e) {
-        let modelNum = this.data.modelNum
-        this.data.modelInfo[modelNum].content = e.detail.value
     }
 })

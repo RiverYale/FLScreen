@@ -3,10 +3,12 @@
     <view class='model-name'>
         <text>{{modelName[modelNum]}} ({{(modelNum+1)}}/{{maxModelNum}})</text>
     </view>
-    <view class='img-container'>
-        <image class='arrow' src='/images/left.png' bindtap='last' />
-        <image class='model' src='/images/model{{modelNum}}.png'/>
-        <image class='arrow' src='/images/right.png' bindtap='next' />
-    </view>
+    <swiper indicator-dots="{{true}}" circular="{{true}}" bindchange='changeModel'>
+        <block wx:for="{{images}}" wx:key="*this">
+            <swiper-item>
+                <image mode='widthFix' src='{{item}}'/>
+            </swiper-item>
+        </block>
+    </swiper>
     <button bindtap='ensure'>确认</button>
 </view>
