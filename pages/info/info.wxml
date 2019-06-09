@@ -6,5 +6,5 @@
 
 <view class='item' wx:for='{{dataArray}}' wx:key='{{index}}' wx:if='{{index>0}}'>
     <text class='title'>{{item.title}}</text>
-    <text class='content' space='emsp'>{{item.content}} </text>
+    <text class='content' space='emsp'>{{item.content}}  </text>
 </view>

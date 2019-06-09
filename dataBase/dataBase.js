@@ -35,7 +35,7 @@ var queryState = function(device){//查询某个设备状态
     })
   })
 }
-var alreadyExist = function(device){
+var alreadyExist = function(device){//设备是否已经存在
   var data = wx.getStorageSync("DeviceList");
   if (data == []) return false;
   return data.some(function(item){
@@ -61,6 +61,11 @@ var getDeviceList = function () {//获取本地设备列表
   })
   return data;
 }
+var changeName = function(deviceNum,newName){//给某个设备改名
+  var data = wx.getStorageSync("DeviceList");
+  data[deviceNum].name = newName;
+  wx.setStorageSync("DeviceList", data);
+}
 var assignOrder = function(order,id){//下发命令
 
 }
@@ -69,6 +74,7 @@ module.exports = {
   queryState,
   addNewDevice,
   alreadyExist,
+  changeName,
 }
 
       /*

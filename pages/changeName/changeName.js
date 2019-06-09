@@ -1,5 +1,6 @@
 // pages/changeName/changeName.js
-const app=getApp()
+const app=getApp();
+const dataBase = require("../../dataBase/dataBase.js");
 Page({
     data: {
         deviceNum: -1,
@@ -7,10 +8,11 @@ Page({
     },
     
     onLoad: function (options) {
-        this.setData({ 
-            deviceNum: app.globalData.deviceNum,
-            name: ''//原来的名字
-        })
+      //console.log(options);
+      this.setData({ 
+          deviceNum: options.deviceNum,
+          name: ''//原来的名字
+      })
     },
 
     editName: function(e) {
@@ -19,6 +21,7 @@ Page({
 
     ensure: function() {
         //修改设备名字
-        wx.navigateBack()
+        dataBase.changeName(this.data.deviceNum,this.data.name);
+        wx.navigateBack();
     }
 })

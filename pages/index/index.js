@@ -8,7 +8,8 @@ Page({
             {
                 name: "样例1",
                 id: "123",
-                online: false
+                online: false,
+                others:{},
             },
         ]
     },
@@ -57,8 +58,7 @@ Page({
     },
 
     showInfo: function (e) {
-        app.globalData.deviceNum = e.currentTarget.dataset.index
-        wx.navigateTo({ url: '/pages/info/info' })
+          wx.navigateTo({ url: '/pages/info/info?deviceNum=' + e.currentTarget.dataset.index })
     },
 
     edit: function (e) {
