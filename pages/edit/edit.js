@@ -1,5 +1,7 @@
 // pages/edid/edit.js
-const app = getApp()
+const app = getApp();
+const dataBase = require("../../dataBase/dataBase.js");
+const commend = require("../../dataBase/commend.js");
 Page({
     data: {
         deviceNum: -1,
@@ -8,11 +10,12 @@ Page({
         modelInfo: []
     },
 
-    onLoad: function (options) {
+    onShow: function (options) {
         this.setData({ 
             deviceNum: app.globalData.deviceNum,
             modelName: app.globalData.modelName,
-            modelInfo: app.globalData.modelInfo
+            modelInfo: app.globalData.modelInfo,
+            modelNum: app.globalData.modelNum,
         })
     },
 
@@ -32,9 +35,26 @@ Page({
             }
         })
     },
-    
     ensure: function() {
-        wx.navigateBack()
+      var devices = dataBase.getDeviceList();
+      var order = commend.c_draw_picture(app.globalData.modelRealName[this.data.modelNum]);
+      var info = app.globalData.modelInfo[this.data.modelNum];
+      for (let i = 0; i < info.length;i++){
+        if(info[i].content=='') continue;
+        order += commend.c_draw_font(info[i].position.x,info[i].position.y,info[i].size,info[i].content);
+      }
+      wx.showToast({
+        title: '发送中',
+        icon: "loading",
+      })
+      dataBase.assignOrder(devices[this.data.deviceNum], order).then(function(){
+        wx.hideToast();
+        wx.showToast({
+          title: '发送成功',
+          duration: 600,
+        });
+        wx.navigateBack();
+      })
     },
 
     editInfo: function(e) {

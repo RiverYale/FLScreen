@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 const dataBase = require("../../dataBase/dataBase.js");
+const url = require("../../utils/gbk.js");
 Page({
     data: {
         dataArray: [
@@ -62,6 +63,7 @@ Page({
     },
 
     edit: function (e) {
+        
         app.globalData.deviceNum = e.currentTarget.dataset.index
         wx.navigateTo({ url: '/pages/edit/edit' })
     },

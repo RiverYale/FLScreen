@@ -8,8 +8,8 @@ Page({
         modelName: [], 
         images: [
             '/images/model0.jpg',
-            '/images/model1.jpg',
-            '/images/model2.jpg'
+            '/images/model2.jpg',
+            '/images/model1.jpg'
         ]
     },
 
@@ -28,6 +28,7 @@ Page({
 
     ensure: function () {
         //确认选择模板，index为编辑的设备编号
+        app.globalData.modelNum = this.data.modelNum;
         wx.navigateBack();
     }
 })

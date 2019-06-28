@@ -66,8 +66,27 @@ var changeName = function(deviceNum,newName){//给某个设备改名
   data[deviceNum].name = newName;
   wx.setStorageSync("DeviceList", data);
 }
-var assignOrder = function(order,id){//下发命令
-
+var assignOrder = function(device,order){//下发命令
+  var id = device.id; 
+  var APIKey = device.APIKey;
+  return new Promise(function(resolve,reject){
+    wx.request({
+      url: 'https://api.heclouds.com/cmds?device_id=' + id,
+      data: order,
+      header: {
+        //设置参数内容类型为json
+        'content-type': 'application/json',
+        'api-key': APIKey,
+      },
+      method: 'POST',
+      success: function (res) {
+        resolve(res);
+      },
+      fail: function (res) {
+        reject(res);
+      }
+    })
+  })
 }
 module.exports = {
   getDeviceList,
@@ -75,6 +94,7 @@ module.exports = {
   addNewDevice,
   alreadyExist,
   changeName,
+  assignOrder,
 }
 
       /*
