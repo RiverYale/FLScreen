@@ -63,7 +63,6 @@ Page({
     },
 
     edit: function (e) {
-        
         app.globalData.deviceNum = e.currentTarget.dataset.index
         wx.navigateTo({ url: '/pages/edit/edit' })
     },

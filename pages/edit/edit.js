@@ -47,13 +47,20 @@ Page({
         title: '发送中',
         icon: "loading",
       })
-      dataBase.assignOrder(devices[this.data.deviceNum], order).then(function(){
-        wx.hideToast();
-        wx.showToast({
-          title: '发送成功',
-          duration: 600,
-        });
+      dataBase.assignOrder(devices[this.data.deviceNum], order).then(function(res){
+        console.log(res);
+        if(res.data.errno==10){
+          wx.hideToast();
+          wx.showToast({
+            title: '设备不在线，发送失败',
+            icon: "none",
+            duration: 1500,
+          });
+          return;
+        }
         wx.navigateBack();
+      }).catch(function(e){
+        console.log(e);
       })
     },
 

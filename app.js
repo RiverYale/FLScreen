@@ -37,6 +37,11 @@ App({
                   position: { x: 550, y: 230 },
                   size: 1,
                 },
+                {
+                  title: '留言', content: '',
+                  position: { x: 180, y: 430 },
+                  size: 1,
+                },
             ],
             [
               {
