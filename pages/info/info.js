@@ -21,7 +21,8 @@ Page({
                 title: '协议',
                 content: ''
             }
-        ]
+        ],
+        datapoints:[],
     },
 
     onLoad: function (options) {
@@ -48,6 +49,13 @@ Page({
           //上次连接时间  这个时间出现问题了所以改成id算了
           //协议
         })
+
+        dataBase.queryDataStream(devices[this.data.deviceNum]).then(function (res) {//里面包了一个promise
+          //console.log(res.data.data.datastreams[0].datapoints);
+          that.setData({
+            datapoints: res.data.data.datastreams[0].datapoints,
+          });
+        })
     },
     onShow:function(){
       var devices = dataBase.getDeviceList();
@@ -56,6 +64,15 @@ Page({
       this.setData({
         dataArray: data,
       })
+    },
+    upper: function(e) {
+      //console.log(e)
+    }, 
+    lower: function(e) {
+      // console.log(e)
+    },
+    scroll: function(e) {
+      // console.log(e)
     },
     changeModel: function() {
       wx.navigateTo({ url: '/pages/changeName/changeName?deviceNum='+this.data.deviceNum })

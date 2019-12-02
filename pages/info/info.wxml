@@ -8,3 +8,10 @@
     <text class='title'>{{item.title}}</text>
     <text class='content' space='emsp'>{{item.content}}  </text>
 </view>
+
+ <scroll-view scroll-y="true" style="height: 300rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view wx:for='{{datapoints}}'>
+      <text>{{item.at}}</text>
+      <text>{{item.value}}  </text>
+    </view>
+</scroll-view>

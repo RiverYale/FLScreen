@@ -35,6 +35,39 @@ var queryState = function(device){//查询某个设备状态
     })
   })
 }
+var withZero = function(num){
+  return num<10?'0'+num:num;
+}
+var queryDataStream = function (device) {//查询某个设备状态
+  //console.log(device);
+  var id = device.id;
+  var APIKey = device.APIKey;
+  var now = new Date();
+  //https://api.heclouds.com/devices/573373405/datapoints?start=2019-12-02T00:00:00&end=2019-12-02T23:59:59&sort=DESC
+  var end = now.getFullYear() + '-' + withZero(now.getMonth() + 1) + '-' + withZero(now.getDate()) + 'T' + withZero(now.getHours()) + ":" + withZero(now.getMinutes()) + ":" +withZero(now.getSeconds());
+  var yes = new Date();
+  yes.setTime(now.getTime() - 24 * 60 * 60 * 1000);
+  var start = yes.getFullYear() + '-' + withZero(yes.getMonth() + 1) + '-' + withZero(yes.getDate()) + 'T' + withZero(yes.getHours()) + ":" + withZero(yes.getMinutes()) + ":" + withZero(yes.getSeconds());
+  console.log(start);
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: 'https://api.heclouds.com/devices/' + id +'/datapoints?start='+start+"&end="+end+"&sort=DESC",
+      header: {
+        //设置参数内容类型为json
+        'content-type': 'application/json',
+        'api-key': APIKey,
+        // "datastream_ids":"1201ce79-fb1e-4293-b2e3-8986751b5bc5"
+      },
+      method: 'GET',
+      success: function (res) {
+        resolve(res);
+      },
+      fail: function (res) {
+        reject(res);
+      }
+    })
+  })
+}
 var alreadyExist = function(device){//设备是否已经存在
   var data = wx.getStorageSync("DeviceList");
   if (data == []) return false;
@@ -58,6 +91,11 @@ var getDeviceList = function () {//获取本地设备列表
     id: "528810626",
     APIKey: "wBT=h5WoInLv5Kpci7ja0SSzL=o=",
     name: "test_2",
+  })
+  data.push({
+    id: "573373405",
+    APIKey: "CJJAQVwz9ykxJckLEIi3xLzqAdI=",
+    name: "教室用课表测试1",
   })
   return data;
 }
@@ -95,6 +133,7 @@ module.exports = {
   alreadyExist,
   changeName,
   assignOrder,
+  queryDataStream,
 }
 
       /*
