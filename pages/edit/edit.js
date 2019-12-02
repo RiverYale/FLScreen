@@ -37,17 +37,25 @@ Page({
     },
     ensure: function() {
       var devices = dataBase.getDeviceList();
-      var order = commend.c_draw_picture(app.globalData.modelRealName[this.data.modelNum]);
+     
+      var instructions = new Array();
+      instructions.push(commend.c_draw_picture(app.globalData.modelRealName[this.data.modelNum]));
       var info = app.globalData.modelInfo[this.data.modelNum];
-      for (let i = 0; i < info.length;i++){
-        if(info[i].content=='') continue;
-        order += commend.c_draw_font(info[i].position.x,info[i].position.y,info[i].size,info[i].content);
+      for (let i = 0; i < info.length; i++) {
+        if (info[i].content == '') continue;
+        instructions.push(commend.c_draw_font(info[i].position.x, info[i].position.y, info[i].size, info[i].content));
       }
+      var order={
+        instructions:Array,
+      };
+      order.instructions = instructions;
+      //console.log(JSON.stringify(order));
+      
       wx.showToast({
         title: '发送中',
         icon: "loading",
       })
-      dataBase.assignOrder(devices[this.data.deviceNum], order).then(function(res){
+      dataBase.assignOrder(devices[this.data.deviceNum], JSON.stringify(order)).then(function(res){
         console.log(res);
         if(res.data.errno==10){
           wx.hideToast();

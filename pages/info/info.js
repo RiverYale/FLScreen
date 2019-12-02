@@ -12,7 +12,7 @@ Page({
             {
                 title: '在线状态',
                 content: "",
-            },
+            },  
             {
                 title: '设备id',
                 content: ''

@@ -9,7 +9,8 @@ Page({
         images: [
             '/images/model0.jpg',
             '/images/model2.jpg',
-            '/images/model1.jpg'
+            '/images/model1.jpg',
+            '/images/model0.jpg',
         ]
     },
 

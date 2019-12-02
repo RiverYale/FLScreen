@@ -4,7 +4,7 @@ var getNewDevice = function(id,APIKey){//获取新的设备(服务器端)
 var queryAPIKey = function(id){//用id获取本地存储的APIKey
 
 }
-var addNewDevice = function(device){//添加设备进文件保存(本地端)
+var addNewDevice  = function(device){//添加设备进文件保存(本地端)
   var data = wx.getStorageSync("DeviceList");
   if(data==[]) data = new Array();
   data.push(device);
