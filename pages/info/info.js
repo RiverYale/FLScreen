@@ -52,8 +52,13 @@ Page({
 
         dataBase.queryDataStream(devices[this.data.deviceNum]).then(function (res) {//里面包了一个promise
           //console.log(res.data.data.datastreams[0].datapoints);
+          var data = res.data.data.datastreams[0].datapoints;
+          for(let i = 0;i<data.length;i++)
+          {
+            data[i].at = data[i].at.substr(0, data[i].at.indexOf('.'));
+          }
           that.setData({
-            datapoints: res.data.data.datastreams[0].datapoints,
+            datapoints:data,
           });
         })
     },
