@@ -8,3 +8,22 @@
     <text class='title'>{{item.title}}</text>
     <text class='content' space='emsp'>{{item.content}}  </text>
 </view>
+
+<scroll-view scroll-x='true' scroll-y='true' class='log-window'>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  finish successfully</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  restart</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  finish successfully</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  restart</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  finish successfully</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  restart</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  finish successfully</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  restart</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  finish successfully</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  restart</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  finish successfully</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  restart</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  finish successfully</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  restart</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  finish successfully</text>
+    <text class='log-item' space="ensp">2019-12-02  22:56:45.207  restart</text>
+</scroll-view>

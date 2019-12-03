@@ -34,3 +34,18 @@
 .content{
     color: gray;
 }
+
+.log-window{
+    margin-top: 15px;
+    background: white;
+    width: 100%;
+    height: calc(100vh - 300px);
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: 10px 0;
+}
+
+.log-item{
+    display: block;
+    width: 100%;
+}
